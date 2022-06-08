@@ -5,15 +5,31 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
     </head>
     <body>
-        <div id="button" onmouseover="overMe()" onmouseout="defaultButton()">Not on me...</div>
+        <div class="player">
+            <video id="video-player" loop>
+                <source src="usman_ko.mp4">
+            </video>
+            <div class="container">
+                <div id="play-pause" onclick="playVideo()">
+                    <i class="fa fa-play-circle fa-3x" style="color: white"></i>
+                </div>
+                <div class="progress-bar"></div>
+                <div class="volume"></div>
+            </div>
+        </div>
     </body>
     <script>
-        const button = document.getElementById("button");
-        function overMe() {
-            button.innerHTML = "ON ME!";
-        }
-        function defaultButton() {
-            button.innerHTML = "Not on me...";
+        const player = document.getElementById("video-player");
+        const changeToPause = document.getElementById("play-pause");
+
+        function playVideo() {
+            if (player.paused) {
+                player.play();
+                changeToPause.innerHTML = '<i class="fa fa-pause-circle fa-3x" style="color: white"></i>';
+            } else {
+                player.pause();
+                changeToPause.innerHTML = '<i class="fa fa-play-circle fa-3x" style="color: white"></i>';
+            }
         }
     </script>
 </html>
