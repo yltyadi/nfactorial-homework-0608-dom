@@ -13,6 +13,10 @@ body {
     flex-direction: column;
 }
 
+#video-player {
+    display: flex;
+}
+
 .container {
     position: fixed;
     display: flex;
